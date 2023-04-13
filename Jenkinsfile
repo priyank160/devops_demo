@@ -41,7 +41,7 @@ pipeline {
                     sh 'mvn clean package'
                     def version = (readFile('pom.xml') =~ '<version>(.+)</version>')[0][2]
                     env.IMAGE_NAME = "$version-$BUILD_NUMBER"
-                    sh "docker build -t /devops_demo-boot:${IMAGE_NAME} ."
+                    sh "docker build -t /devops_demo:${IMAGE_NAME} ."
                     }
             }
         }
